@@ -1,0 +1,37 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SpaceX</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <h1>Space Mission Analysis</h1>
+        <h2>Mission Type Breakdown</h2>
+        <div id="containerorbit">
+
+        </div>
+        <div id="twolaunches">
+            
+        </div>
+        <div id="reusable">
+            
+        </div>
+    </body>
+    </html>
+    <script>
+       async function reusable(){
+        let leodata = await fetch("http://localhost:5000/launches/reused")
+        leodata = await leodata.json()
+        let reusedtimes =  leodata.resuedtimes
+        return reusedtimes
+        }
+
+        const reusablediv = document.getElementById("reusable")
+        let newdiv =  document.createElement("div")
+        newdiv.innerText =  await reusable()
+        console.log(await reusable())
+        reusablediv.appendChild(newdiv)
+    </script>

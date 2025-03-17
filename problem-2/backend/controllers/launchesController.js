@@ -55,4 +55,5 @@ export const getReuse = async(req,res)=>{
 export const getOrbit = async(req,res)=>{
     let orbit = req.body.orbit
     let launches = Launches.find({orbit : orbit})
+    res.send(launches.length)
 }
